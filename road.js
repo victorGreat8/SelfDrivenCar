@@ -28,7 +28,7 @@ class Road{
     }
 
     draw(ctx){
-        ctx.lineWidht=5;
+        ctx.lineWidth=5;
         ctx.strokeStyle="white";
 
         for(let i=1;i<=this.laneCount-1;i++){

@@ -7,7 +7,9 @@ Built by following the tutorial series by [Radu Mariescu-Istodor](https://www.yo
 ## Features (so far)
 - Car movement with acceleration, friction, and max speed
 - Steering with angle-based turning
-- Road rendering
+- Road rendering with lane markings
+- Camera that follows the car
+- Sensor rays that cast forward from the car and rotate with its direction
 
 ## Controls
 | Key | Action |

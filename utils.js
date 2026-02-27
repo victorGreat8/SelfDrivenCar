@@ -1,0 +1,3 @@
+function lerp(A,B,t){ // lerp is a function that takes in three parameters: A, B, and t. A and B are the two values that we want to interpolate between, and t is the amount that we want to interpolate. The function returns a value that is t percent of the way between A and B.
+    return A+(B-A)*t; // A+(B-A)*t is the formula for linear interpolation. It takes the difference between B and A, multiplies it by t, and then adds it to A. This gives us a value that is t percent of the way between A and B.
+}

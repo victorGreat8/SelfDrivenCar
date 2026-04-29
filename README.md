@@ -13,6 +13,10 @@ Built by following the tutorial series by [Radu Mariescu-Istodor](https://www.yo
 - Polygon-based collision shape that rotates with the car
 - Damage detection — car turns gray when it hits a road border or traffic car
 - Traffic system with dummy cars that drive straight
+- Neural network brain that controls the AI car
+- 100 AI cars simulated simultaneously, camera follows the best one
+- Neural network visualizer showing weights, biases, and live activations
+- Sensor lines only shown on the lead car
 
 ## Controls
 | Key | Action |

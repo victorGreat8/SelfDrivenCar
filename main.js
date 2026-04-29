@@ -1,8 +1,12 @@
-const canvas = document.getElementById("myCanvas");
-canvas.width = 200;
+const carCanvas = document.getElementById("carCanvas");
+carCanvas.width = 200;
+const networkCanvas = document.getElementById("networkCanvas");
+networkCanvas.width = 300;
 
-const ctx = canvas.getContext("2d"); // getContext is a method that returns a drawing context on the canvas, which we can use to draw on the canvas
-const road = new Road(canvas.width/2,canvas.width*0.9);
+const carCtx = carCanvas.getContext("2d"); // getContext is a method that returns a drawing context on the canvas, which we can use to draw on the canvas
+const networkCtx = networkCanvas.getContext("2d");
+
+const road = new Road(carCanvas.width/2,carCanvas.width*0.9);
 
 const Car = new car(road.getLaneCenter(1), 100, 30, 50, "AI");
 const traffic =[
@@ -17,16 +21,20 @@ function animate(){
     }
     Car.update(road.borders,traffic);
 
-    canvas.height = window.innerHeight;
+    carCanvas.height = window.innerHeight;
+    networkCanvas.height = window.innerHeight;
 
-    ctx.save();
-    ctx.translate(0,-Car.y+canvas.height*0.7); // translate is used to move the canvas, in this case we are moving it up by the car's y position minus 70% of the canvas height
-    road.draw(ctx);
+
+    carCtx.save();
+    carCtx.translate(0,-Car.y+carCanvas.height*0.7); // translate is used to move the canvas, in this case we are moving it up by the car's y position minus 70% of the canvas height
+    road.draw(carCtx);
     for(let i=0;i<traffic.length;i++){
-        traffic[i].draw(ctx, "red");
+        traffic[i].draw(carCtx, "red");
     }
-    Car.draw(ctx, "blue");
+    Car.draw(carCtx, "blue");
 
-    ctx.restore();
+    carCtx.restore();
+
+    Visualizer.drawNetwork(networkCtx, Car.brain);
     requestAnimationFrame(animate);
 }

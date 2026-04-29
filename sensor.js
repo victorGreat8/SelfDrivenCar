@@ -9,17 +9,17 @@ class Sensor{
         this.readings=[];
     }
 
-    update(roadBorders){
+    update(roadBorders, traffic){
         this.#castRays();
         this.readings=[];
         for(let i=0;i<this.rays.length;i++){
             this.readings.push(
-                this.#getReading(this.rays[i],roadBorders)
+                this.#getReading(this.rays[i],roadBorders, traffic)
             );
         }
     }
 
-    #getReading(ray,roadBorders){ // ray is the yellow line that we are casting, roadBorders is the array of the borders of the road
+    #getReading(ray,roadBorders, traffic){ // ray is the yellow line that we are casting, roadBorders is the array of the borders of the road
         let touches=[];
 
         for(let i=0;i<roadBorders.length;i++){ // for each border of the road, we will check if the ray intersects with it
@@ -31,6 +31,21 @@ class Sensor{
             );
             if(touch){
                 touches.push(touch);
+            }
+        }
+
+        for(let i=0;i<traffic.length;i++){
+            const poly= traffic[i].polygon; // polygon is the array of points that make up the car
+            for(let j=0;j<poly.length;j++){
+                const value=getIntersection(
+                    ray[0],
+                    ray[1],
+                    poly[j],
+                    poly[(j+1)%poly.length] // we use modulus to loop back to the first point of the polygon
+                );
+                if(value){
+                    touches.push(value);
+                }
             }
         }
 

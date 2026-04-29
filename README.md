@@ -9,7 +9,10 @@ Built by following the tutorial series by [Radu Mariescu-Istodor](https://www.yo
 - Steering with angle-based turning
 - Road rendering with lane markings
 - Camera that follows the car
-- Sensor rays that cast forward from the car and rotate with its direction
+- Sensor rays that detect road borders and traffic cars
+- Polygon-based collision shape that rotates with the car
+- Damage detection — car turns gray when it hits a road border or traffic car
+- Traffic system with dummy cars that drive straight
 
 ## Controls
 | Key | Action |
@@ -31,18 +34,6 @@ Open `index.html` in a browser (use a local server like VS Code Live Server).
 - `ctx` = the marker/pen you draw with
 
 You get it by calling `canvas.getContext("2d")`, which gives you all the drawing methods like `ctx.rect()`, `ctx.fill()`, `ctx.translate()` etc.
-
-**What does `-this.width/2` mean in the draw function?**
-
-`ctx.rect(x, y, width, height)` draws from the top-left corner. Without the `/2` trick, the car's corner would be at its center point and it would look offset. By subtracting half the width and half the height, the rectangle gets centered on the car's position:
-
-```
-Without /2:       With /2:
-┌──────┐          ┌──────┐
-│      │    →     │  •   │   ← • is the center point
-│ •    │          │      │
-└──────┘          └──────┘
-```
 
 **Canvas coordinate system**
 

@@ -118,6 +118,21 @@ Some random brains will accidentally drive forward for a bit. Most will crash im
 
 ---
 
+## Saving and loading the best brain
+
+The 📇 (save) and 🗑️ (discard) buttons let you keep progress between sessions.
+
+- **Save** — takes the brain of whichever car is currently furthest ahead and writes it to `localStorage`. This survives page refreshes.
+- **Discard** — deletes the saved brain so the next run starts completely fresh.
+
+On startup, if a saved brain exists it is automatically loaded into the first car.
+The other 99 cars still start with random (mutated) brains — so the population keeps exploring new possibilities while the best one is preserved.
+
+**Why localStorage?**
+It's built into the browser — no server or database needed. It stores simple text (JSON), and `JSON.stringify` / `JSON.parse` are used to convert the brain object to text and back.
+
+---
+
 ## What comes next — mutation and evolution
 
 This is where it gets interesting.

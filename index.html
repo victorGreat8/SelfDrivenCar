@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <head>
+    <meta charset="UTF-8">
     <title>Self-Driving Car Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="carCanvas"></canvas>
+    <div id="verticalButtons">
+        <button onclick="save()">📇</button>
+        <button onclick="discard()">🗑️</button>
+    </div>
     <canvas id="networkCanvas"></canvas>
     <script src="network.js"></script>
     <script src="visualizer.js"></script>

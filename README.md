@@ -14,9 +14,10 @@ Built by following the tutorial series by [Radu Mariescu-Istodor](https://www.yo
 - Damage detection — car turns gray when it hits a road border or traffic car
 - Traffic system with dummy cars that drive straight
 - Neural network brain that controls the AI car
-- 100 AI cars simulated simultaneously, camera follows the best one
+- 100 AI cars simulated simultaneously, camera follows the furthest one
 - Neural network visualizer showing weights, biases, and live activations
 - Sensor lines only shown on the lead car
+- Save/discard buttons to store the best brain in localStorage between sessions
 
 ## Controls
 | Key | Action |
